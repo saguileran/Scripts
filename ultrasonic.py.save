@@ -1,0 +1,27 @@
+import Adafruit_BBIO.GPIO as GPIO
+import time
+
+def distanceMeasurement(TRIG,ECHO):   #define la funcion que depende de Trig y Echo
+
+    GPIO.output(TRIG, True)
+    time.sleep(0.00001)
+    GPIO.output(TRIG, False)
+
+    while GPIO.input(ECHO) == 0:
+        pulseStart = time.time()
+    while GPIO.input(ECHO) == 1:
+        pulseEnd = time.time()
+
+    pulseDuration = pulseEnd - pulseStart   #delta de t 
+    distance = pulseDuration * 17150    #tiempo x velocidad del sonido en cm / 2 
+    distance = round(distance, 2)  #2 decimales en el valor arrojado
+    return distance
+
+#Configuration
+GPIO.setup("P9_27",GPIO.OUT) #Trigger
+GPIO.setup("P9_29",GPIO.IN)  #Echo
+
+for i in range(0,200):
+               recoveredDistance = distanceMeasurement("P9_27","P9_29")
+               print "Distance1: ",recoveredDistance,"cm"
+               time.sleep(1)
