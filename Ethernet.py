@@ -6,3 +6,4 @@ external=
 /sbin/iptables -t nat -A POSTRUTING-o $external -j MASQUERADE
 /sbin/iiptables -A FORWARD -i $external -o $internal -m state --state RELATED,ESTABLISHED -j ACCEPT
 /sbin/iptables -A FORWARD -i $internal -o $external -j ACCEPT
+#Comentario
