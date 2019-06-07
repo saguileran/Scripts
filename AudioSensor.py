@@ -9,7 +9,7 @@ GPIO.setup(a, GPIO.IN)
 #GPIO.setup("")
 
 #value=GPIO.input(a,GPIO.IN)
-for i in range(100):
+for i in range(10000):
  print(GPIO.input("P9_13"))
    
 
@@ -35,7 +35,7 @@ for i in range(2000):
    decibel=20*math.log10(soundVal/1.8)
    #s.append(soundVal)   #Creando una lsita
   # soundVolt=soundVal*1000 #*1.7*1000
-   print "The Voltage is: "+str(soundVal)+" V"
+  # print "The Voltage is: "+str(soundVal)+" V"
    #print "The decibel is: "+str(decibel)+" dB"
 #print(round(ADC.read(analogPin),10),str(round(soundVal,2))+" ", str(decibel)+str(" dB"))
 #   print(round(soundVolt,3))
